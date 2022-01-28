@@ -40,10 +40,15 @@ build {
     scripts = ["./scripts/initial_config.sh"]
 
   }
-
+  
+  provisioner "file" {
+    source = "./scripts/index.html"  
+    destination = "/tmp/"
+  }
+  
   provisioner "shell" {
     inline = [
-      "echo This provisioner runs last"
+      "sudo mv /tmp/index.html /var/www/html/"
     ]
   }
 }
