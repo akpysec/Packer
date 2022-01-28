@@ -42,13 +42,13 @@ build {
   }
   
   provisioner "file" {
-    source = "./scripts/index.html"  
+    source = "./scripts/web/*"  
     destination = "/tmp/"
   }
   
   provisioner "shell" {
     inline = [
-      "sudo mv /tmp/index.html /var/www/html/"
+      "sudo mv /tmp/* /var/www/html/"
     ]
   }
 }
